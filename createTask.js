@@ -1,16 +1,15 @@
-function generateUniqueId() {
-    return Math.random().toString(36).substr(2, 9);
-  }
+let currentId = 1;
   
 function createTask(taskList, taskDescription) {
     const newTask = {
-      id: generateUniqueId(),
+      id: currentId++,
       description: taskDescription,
       completed: false,
     };
   
     taskList.push(newTask);
-    console.log('✅ Tarea creada correctamente.\n');
+    console.log('\n✅ Tarea creada correctamente.\n');
+    console.log(`${newTask.id} - ${newTask.description} - Completada: ${newTask.completed}`);
     return newTask;
   }
 

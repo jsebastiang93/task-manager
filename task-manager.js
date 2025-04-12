@@ -1,6 +1,8 @@
-
 const readline = require('readline');
 const createTask = require('./createTask');
+//const listAllTasks = require('./listAllTasks');
+//const markTaskAsCompleted = require('./markTaskAsCompleted');
+const deleteTask = require('./deleteTask');
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -17,12 +19,14 @@ function viewMenu() {
 3. Marcar tarea completada
 4. Eliminar tarea
 5. Salir
+-----------------------------------------
+----------- version 1.0.0 ---------------
 *****************************************
 `);
 }
 
-function salir() {
-  console.log('👋 Saliendo del Task Manager. ¡Hasta pronto!');
+function exit() {
+  console.log('👋 Saliendo del Task Manager. ¡Hasta pronto!\n');
   rl.close();
 }
 
@@ -35,16 +39,34 @@ function options(opcion) {
           });
       break;
     case '2':
-      
+            //listAllTasks(taskList);
+            console.log('\n📋 Listado de tareas:');
+            if (taskList.length === 0) {
+              console.log('No hay tareas registradas.\n');
+            } else {
+              taskList.forEach((task, index) => {
+                const status = task.completed ? '✅ Completada' : '❌ Pendiente';
+                console.log(`${task.id} - ${task.description} - Completada: ${task.completed}`);
+              });
+              console.log('');
+            }
+            viewOptions();
       break;
     case '3':
-      
+        rl.question('Ingrese el ID de la tarea a completar: ', (taskId) => {
+            //markTaskAsCompleted(taskList, taskId);
+            viewOptions();
+          });
       break;
     case '4':
-      
+        rl.question('Ingrese el ID de la tarea a eliminar: ', (taskIdInput) => {
+            const taskId = parseInt(taskIdInput);
+            deleteTask(taskList, taskId);
+            viewOptions();
+          });
       break;
     case '5':
-      salir();
+      exit();
       break;
     default:
       console.log('❌ Opción inválida. Intente de nuevo.\n');
