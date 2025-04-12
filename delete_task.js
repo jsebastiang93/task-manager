@@ -1,16 +1,15 @@
-// taskFunctions.js
-
 function deleteTask(taskList, taskId) {
   for (let index = 0; index < taskList.length; index++) {
     if (taskList[index].id === taskId) {
+      const removedTask = taskList[index];
       taskList.splice(index, 1);
-      return "Task deleted";
+      console.log("\n🗑️ Tarea eliminada correctamente:");
+      console.log(`${removedTask.id} - ${removedTask.description} - ${removedTask.completed}\n`);
+      return;
     }
   }
-  return "Task not found";
+
+  console.log(`\n❌ No se encontró una tarea con el ID ${taskId}.\n`);
 }
 
-
-module.exports = {
-  deleteTask
-};
+module.exports = deleteTask;
