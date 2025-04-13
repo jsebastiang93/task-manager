@@ -1,7 +1,7 @@
 const readline = require('readline');
 const createTask = require('./createTask');
 const listAllTasks = require('./listAllTasks');
-//const markTaskAsCompleted = require('./markTaskAsCompleted');
+const markTaskAsCompleted = require('./markTaskAsCompleted');
 const deleteTask = require('./deleteTask');
 
 const rl = readline.createInterface({
@@ -40,21 +40,12 @@ function options(opcion) {
       break;
     case '2':
             listAllTasks(taskList);
-            // console.log('\n📋 Listado de tareas:');
-            // if (taskList.length === 0) {
-            //   console.log('No hay tareas registradas.\n');
-            // } else {
-            //   taskList.forEach((task, index) => {
-            //     const status = task.completed ? '✅ Completada' : '❌ Pendiente';
-            //     console.log(`${task.id} - ${task.description} - Completada: ${task.completed}`);
-            //   });
-            //   console.log('');
-            // }
             viewOptions();
       break;
     case '3':
-        rl.question('Ingrese el ID de la tarea a completar: ', (taskId) => {
-            //markTaskAsCompleted(taskList, taskId);
+        rl.question('Ingrese el ID de la tarea a completar: ', (taskIdInput) => {
+            const taskId = parseInt(taskIdInput);
+            markTaskAsCompleted(taskList, taskId);
             viewOptions();
           });
       break;
