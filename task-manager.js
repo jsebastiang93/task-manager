@@ -1,6 +1,6 @@
 const readline = require('readline');
 const createTask = require('./createTask');
-//const listAllTasks = require('./listAllTasks');
+const listAllTasks = require('./listAllTasks');
 //const markTaskAsCompleted = require('./markTaskAsCompleted');
 const deleteTask = require('./deleteTask');
 
@@ -39,17 +39,17 @@ function options(opcion) {
           });
       break;
     case '2':
-            //listAllTasks(taskList);
-            console.log('\n📋 Listado de tareas:');
-            if (taskList.length === 0) {
-              console.log('No hay tareas registradas.\n');
-            } else {
-              taskList.forEach((task, index) => {
-                const status = task.completed ? '✅ Completada' : '❌ Pendiente';
-                console.log(`${task.id} - ${task.description} - Completada: ${task.completed}`);
-              });
-              console.log('');
-            }
+            listAllTasks(taskList);
+            // console.log('\n📋 Listado de tareas:');
+            // if (taskList.length === 0) {
+            //   console.log('No hay tareas registradas.\n');
+            // } else {
+            //   taskList.forEach((task, index) => {
+            //     const status = task.completed ? '✅ Completada' : '❌ Pendiente';
+            //     console.log(`${task.id} - ${task.description} - Completada: ${task.completed}`);
+            //   });
+            //   console.log('');
+            // }
             viewOptions();
       break;
     case '3':
