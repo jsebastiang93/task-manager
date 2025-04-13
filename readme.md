@@ -1,3 +1,13 @@
+INTEGRANTES DEL EQUIPO:
+| Código  | Nombre Completo           | Correo electrónico                     |
+|---------|---------------------------|----------------------------------------|
+| 406562  | Carlos Alberto Ramirez    | carlos.ramirez02@unicatolica.edu.co    |
+| 398401  | Mauricio Buendía          | mauricio.buendia01@unicatolica.edu.co  |
+| 406444  | Valentina Tabares         | valentina.tabares01@unicatolica.edu.co |
+| 374164  | Juan Sebastian Gutierrez  | juan.gutierrez02@unicatolica.edu.co    |
+
+Enlace github: https://github.com/jsebastiang93/task-manager
+
 Actividad práctica Git, Git Flow
 Requisitos de finalización
 Apertura: viernes, 11 de abril de 2025, 18:30
